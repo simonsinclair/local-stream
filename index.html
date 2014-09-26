@@ -13,9 +13,18 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <!-- ... -->
+
+    <div class="page" id="js-page">
+      {{> masthead}}
+
+      <p>Test</p>
+
+      {{> footer}}
+    </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/mustache/jquery.mustache.js"></script>
+    <script src="js/vendor/ba-tiny-pubsub.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
