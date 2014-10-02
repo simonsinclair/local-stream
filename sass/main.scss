@@ -37,9 +37,14 @@ img {
 .page--rendered {
   opacity: 1;
 }
-.secondary-nav {
+.secondary-nav,
+.section-title {
   font-size: 20px;
 }
+.secondary-nav {
+  border-bottom: 1px solid;
+}
+.section-title {}
 
 // Misc
 //
