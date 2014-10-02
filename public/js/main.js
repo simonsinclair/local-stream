@@ -11,47 +11,55 @@
 
       // Partials
       Local.partials = {
-        masthead: '',
-        footer: ''
+        masthead: '#js-masthead',
+        footer: '#js-footer'
       };
-      Local.numPartials       = Object.keys(Local.partials).length;
-      Local.numLoadedPartials = 0;
+      Local.numPartials         = Object.keys(Local.partials).length - 1;
+      Local.numIncludedPartials = 0;
 
       // Start
       Local.bindEvts();
-      Local.getPartials();
+      Local.includePartials();
     },
 
     bindEvts: function() {
-      $.subscribe('partials.loaded', function() {
-        $.unsubscribe('partials.loaded');
-        Local.renderPage();
+      $.subscribe('partials.included', function() {
+        $.unsubscribe('partials.included');
+        Local.$page.addClass('page--rendered');
+      });
+
+      $('a').each(function() {
+        var href = $(this).attr('href');
+
+        // Bind 'tap' event to anchors which go somewhere,
+        // and preventDefault on all '#'-only anchors.
+        if(href.indexOf('#') !== 0) {
+          $(this).on('tap', function() {
+            window.location.href = this.href;
+          });
+        } else {
+          $(this).on('tap', function(e) {
+            e.preventDefault();
+          });
+        }
       });
     },
 
-    getPartials: function() {
+    includePartials: function() {
       $.each(Local.partials, function(partName) {
-        var partPath = 'partials/' + partName + '.mustache';
+        var partPath = 'partials/' + partName + '.html';
 
         $.get( partPath )
-          .done(function(data) {
-            Local.partials[ partName ] = data;
-
-            // Increment first, otherwise we'll always be one behind
-            Local.numLoadedPartials++;
+          .done(function( data ) {
+            $(Local.partials[ partName ], Local.$page).html( data );
 
             // If this is our last partial, emit an event
-            if(Local.numLoadedPartials === Local.numPartials) {
-              $.publish('partials.loaded');
+            if(Local.numIncludedPartials === Local.numPartials) {
+              $.publish('partials.included');
             }
+            Local.numIncludedPartials++;
           });
       });
-    },
-
-    renderPage: function() {
-      var tpl = Local.$page.text();
-      var src = $.mustache(tpl, {}, Local.partials);
-      Local.$page.html( src );
     }
   };
 

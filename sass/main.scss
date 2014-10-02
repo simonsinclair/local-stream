@@ -17,10 +17,27 @@ body {
   line-height: 22px; // 1.4
   // -webkit-font-smoothing: antialiased;
 }
+img {
+  max-width: 100%;
+}
 
 // PAGE
 //
+.page {
+  opacity: 0;
+  transition: opacity 150ms;
+  margin: 0 auto;
+  max-width: 320px;
+}
+.page--rendered {
+  opacity: 1;
+}
 
+// Misc
+//
+.flat-ui {
+  display: block;
+}
 
 // Utility
 //
