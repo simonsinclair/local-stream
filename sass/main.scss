@@ -1,6 +1,8 @@
 // main.scss
 //
 
+$brand: #CC0101;
+
 * {
   &,
   &:before,
@@ -17,6 +19,10 @@ body {
   line-height: 22px; // 1.4
   // -webkit-font-smoothing: antialiased;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 img {
   max-width: 100%;
 }
@@ -25,18 +31,72 @@ img {
 //
 .page {
   opacity: 0;
-  transition: opacity 150ms;
   margin: 0 auto;
   max-width: 320px;
 }
 .page--rendered {
   opacity: 1;
 }
+.secondary-nav {
+  font-size: 20px;
+}
 
 // Misc
 //
 .flat-ui {
   display: block;
+}
+
+// Objects
+.nav {
+  @extend .clearfix;
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+    float: left;
+    width: 100%;
+  }
+  a {
+    display: block;
+  }
+}
+.nav--tags {
+
+  li {
+    color: #767676;
+    display: inline;
+    font-size: 14px;
+    width: auto;
+
+    // First tag
+    &:nth-child(2) {
+      font-weight: bold;
+    }
+
+    // Second tag onwards
+    &:nth-child(n+3) {
+
+      a::before {
+        color: #767676;
+        content: "•";
+        display: inline;
+        margin-right: 8px;
+      }
+    }
+  }
+  a {
+    color: $brand;
+    padding: 0 4px;
+
+    strong {
+      background-color: $brand;
+      color: #FFF;
+      font-size: 10px;
+      padding: 2px 4px;
+      text-transform: uppercase;
+    }
+  }
 }
 
 // Utility
