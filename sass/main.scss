@@ -43,6 +43,10 @@ img {
 }
 .secondary-nav {
   border-bottom: 1px solid;
+
+  &.sprite--d-chev {
+    float: left;
+  }
 }
 .section-title {}
 
@@ -103,6 +107,16 @@ img {
     }
   }
 }
+.sprite {
+  background: transparent url('../img/icons-sprite_x2.png') center 0 no-repeat;
+  background-size: 32px;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+  .sprite--d-chev {
+    background-position: center -5796px;
+  }
 
 // Utility
 //
