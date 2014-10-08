@@ -40,6 +40,8 @@ img {
 .secondary-nav,
 .section-title {
   font-size: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 .secondary-nav {
   border-bottom: 1px solid #EDEDED;
@@ -61,6 +63,11 @@ img {
 //
 .flat-ui {
   display: block;
+}
+
+// short-form
+.sf-01 {
+  margin-top: 16px;
 }
 
 // Objects
