@@ -42,10 +42,17 @@ img {
   font-size: 20px;
 }
 .secondary-nav {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #EDEDED;
+  margin-top: 12px;
+  margin-bottom: 12px;
 
-  &.sprite--d-chev {
-    float: left;
+  a {
+    position: relative;
+    padding-bottom: 11px; // + 1px bdb
+  }
+  .sprite--d-chev {
+    position: absolute;
+    top: -14px; right: -2px;
   }
 }
 .section-title {}
@@ -71,6 +78,8 @@ img {
   }
 }
 .nav--tags {
+  border-top: 1px dotted #DDD;
+  padding: 8px;
 
   li {
     color: #767676;
@@ -107,6 +116,11 @@ img {
     }
   }
 }
+  .tags--contained {
+    border-top: 1px dotted #DDD;
+    border-bottom: 1px dotted #DDD;
+  }
+
 .sprite {
   background: transparent url('../img/icons-sprite_x2.png') center 0 no-repeat;
   background-size: 32px;
