@@ -76,19 +76,30 @@ button {
       top: 0; right: 0;
   }
   time {
-    color: #999;
+    color: #616160;
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
   }
   h2 {
+    font-size: 20px;
     letter-spacing: -1px;
     margin-top: 0;
     margin-bottom: 0;
   }
   p {
+    color: #767676;
+    font-size: 15px;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 8px;
+  }
+  img {
+    display: block;
   }
 }
-  .stream__unit--fresh {}
+  .stream__unit--fresh {
+    background-color: #FFFFF0;
+  }
 
 // Show More (Updates)
 .sm-wrap {
@@ -129,6 +140,10 @@ button {
   margin-right: 16px;
   margin-left: 16px;
   position: relative;
+
+  video {
+    display: block;
+  }
 }
   .ldn-07-play {
     background-color: red;
@@ -206,10 +221,10 @@ button {
   width: 32px;
 }
   .sprite--play {
-    background-position: center -7010px;
+    background-position: center -7003px;
   }
   .sprite--share {
-    background-position: 9px -3000px;
+    background-position: center -3000px;
   }
   .sprite--d-chev {
     background-position: center -5796px;
