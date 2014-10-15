@@ -64,6 +64,32 @@ button {
 }
 .section-title {}
 
+// Stream
+.stream {}
+.stream__unit {
+  margin-right: 16px;
+  margin-left: 16px;
+  position: relative;
+
+  .unit__share {
+    position: absolute;
+      top: 0; right: 0;
+  }
+  time {
+    color: #999;
+  }
+  h2 {
+    letter-spacing: -1px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+  .stream__unit--fresh {}
+
 // Show More (Updates)
 .sm-wrap {
   max-height: 1568px;
@@ -171,6 +197,9 @@ button {
   height: 32px;
   width: 32px;
 }
+  .sprite--share {
+    background-position: center -3000px;
+  }
   .sprite--d-chev {
     background-position: center -5796px;
   }
