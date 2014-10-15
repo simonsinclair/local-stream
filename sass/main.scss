@@ -128,7 +128,13 @@ button {
 .ldn-07 {
   margin-right: 16px;
   margin-left: 16px;
+  position: relative;
 }
+  .ldn-07-play {
+    background-color: red;
+    position: absolute;
+      bottom: 0; left: 0;
+  }
 
 // Objects
 //
@@ -191,14 +197,19 @@ button {
   }
 
 .sprite {
-  background: transparent url('../img/icons-sprite_x2.png') center 0 no-repeat;
+  background-image: url('../img/icons-sprite_x2.png');
+  background-position: center 0;
+  background-repeat: no-repeat;
   background-size: 32px;
   display: inline-block;
   height: 32px;
   width: 32px;
 }
+  .sprite--play {
+    background-position: center -7010px;
+  }
   .sprite--share {
-    background-position: center -3000px;
+    background-position: 9px -3000px;
   }
   .sprite--d-chev {
     background-position: center -5796px;

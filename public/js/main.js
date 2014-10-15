@@ -28,6 +28,7 @@
         Local.$page.addClass('page--rendered');
       });
 
+      // Tappy.js
       $('a', Local.$page).each(function() {
         var href = $(this).attr('href');
 
@@ -44,9 +45,22 @@
         }
       });
 
+      // Show More button
       $('#js-smu', Local.$page).on('tap', function(e) {
         e.preventDefault();
         $('#js-sm-wrap', Local.$page).addClass('sm-wrap--show-more');
+      });
+
+      // Play/Pause
+      $('#js-ldn-07-play', Local.$page).on('tap', function(e) {
+        e.preventDefault();
+
+        var video = $('#js-ldn-07 video', Local.$page)[0];
+        if(video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
       });
     },
 
