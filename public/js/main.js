@@ -28,7 +28,7 @@
         Local.$page.addClass('page--rendered');
       });
 
-      $('a').each(function() {
+      $('a', Local.$page).each(function() {
         var href = $(this).attr('href');
 
         // Bind 'tap' event to anchors which go somewhere,
@@ -42,6 +42,11 @@
             e.preventDefault();
           });
         }
+      });
+
+      $('#js-smu', Local.$page).on('tap', function(e) {
+        e.preventDefault();
+        $('#js-sm-wrap', Local.$page).addClass('sm-wrap--show-more');
       });
     },
 

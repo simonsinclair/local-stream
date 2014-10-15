@@ -17,7 +17,7 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 22px; // 1.4
-  // -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 a {
   color: inherit;
@@ -25,6 +25,11 @@ a {
 }
 img {
   max-width: 100%;
+}
+button {
+  border: none;
+  line-height: 1;
+  padding: 0;
 }
 
 // PAGE
@@ -59,6 +64,29 @@ img {
 }
 .section-title {}
 
+// Show More (Updates)
+.sm-wrap {
+  max-height: 1568px;
+  overflow: hidden;
+}
+  .sm-wrap--show-more {
+    max-height: 100%;
+  }
+.smu {
+  background-color: #499243;
+  border-right: 1px solid #377238;
+  border-bottom: 2px solid #295531;
+  color: #FFF;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 16px;
+  margin-left: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
 // Misc
 //
 .flat-ui {
@@ -71,6 +99,8 @@ img {
 }
 
 // Objects
+//
+
 .nav {
   @extend .clearfix;
   list-style: none;
