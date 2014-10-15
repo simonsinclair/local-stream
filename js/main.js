@@ -58,8 +58,10 @@
         var video = $('#js-ldn-07 video', Local.$page)[0];
         if(video.paused) {
           video.play();
+          console.log('play()');
         } else {
           video.pause();
+          console.log('pause()');
         }
       });
     },
