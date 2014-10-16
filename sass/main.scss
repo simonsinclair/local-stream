@@ -82,7 +82,7 @@ button {
   // Show New updates
   .stream__snu {
     display: block;
-    padding-top: 16px;
+    padding-top: 20px;
     padding-bottom: 16px;
     text-align: center;
 
@@ -104,8 +104,8 @@ button {
     padding-bottom: 24px;
     position: relative;
 
-    &[data-unit="01"] {}
-    &[data-unit="02"] {}
+    &[data-unit="01"],
+    &[data-unit="02"],
     &[data-unit="03"] {}
 
     .unit__share {
@@ -141,6 +141,26 @@ button {
     background-color: #FFFFF0;
   }
 
+  .stream__day-sep {
+    border-bottom: 1px solid #EEE;
+    color: #AAA;
+    height: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+
+    time {
+      background-color: #FFF;
+      display: inline-block;
+      position: absolute;
+        right: 50%; bottom: -11px;
+      padding-right: 8px;
+      padding-left: 8px;
+      transform: translateX(50%);
+    }
+  }
+
   // Show More (Updates)
   .sm-wrap {
     max-height: 1568px;
@@ -163,6 +183,10 @@ button {
     padding-bottom: 12px;
     text-align: center;
   }
+
+.new-updates {
+  display: none;
+}
 
 // Misc
 //
