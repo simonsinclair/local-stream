@@ -24,8 +24,15 @@
 
         <!-- BEGIN STREAM -->
         <div class="stream">
+          <div class="stream__header">
+            <p><strong>Latest updates</strong></p>
+          </div>
 
-          <div class="stream__unit stream__unit--fresh">
+          <a href="#" class="stream__snu stream__snu--visible">
+            <span>Show new updates</span>
+          </a>
+
+          <div class="stream__unit stream__unit--fresh" data-unit="03">
             <span class="unit__share sprite sprite--share"></span>
             <time>17:51</time>
             <h2>Lorem ipsum</h2>
@@ -33,7 +40,7 @@
             <img src="http://placehold.it/288x162" alt="" />
           </div>
 
-          <div class="stream__unit stream__unit--fresh">
+          <div class="stream__unit stream__unit--fresh" data-unit="02">
             <span class="unit__share sprite sprite--share"></span>
             <time>17:26</time>
             <h2>Lorem ipsum</h2>
@@ -41,7 +48,7 @@
             <img src="http://placehold.it/288x162" alt="" />
           </div>
 
-          <div class="stream__unit stream__unit--fresh">
+          <div class="stream__unit stream__unit--fresh" data-unit="01">
             <span class="unit__share sprite sprite--share"></span>
             <time>16:49</time>
             <h2>Lorem ipsum</h2>
@@ -60,12 +67,12 @@
             <img class="flat-ui" src="img/london/06.jpg" alt="" />
 
             <div id="js-ldn-07" class="ldn-07">
-              <a id="js-ldn-07-play" class="ldn-07-play sprite sprite--play" href="#"></a>
               <video
                 width="100%"
-                preload="auto">
+                preload="auto"
+                poster="img/london/poster.jpg"
+                controls="">
                   <source src="http://simonsinclair.com/_/freeze-launch_151014.mp4" type="video/mp4;codecs=avc1.42E01E,mp4a.40.2" />
-                  <source src="http://simonsinclair.com/_/freeze-launch_151014.webm" type="video/webm;codecs=vp8,vorbis" />
               </video>
             </div>
 

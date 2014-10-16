@@ -65,64 +65,104 @@ button {
 .section-title {}
 
 // Stream
-.stream {}
-.stream__unit {
-  margin-right: 16px;
-  margin-left: 16px;
-  position: relative;
-
-  .unit__share {
-    position: absolute;
-      top: 0; right: 0;
-  }
-  time {
-    color: #616160;
-    display: block;
-    font-size: 15px;
-    margin-bottom: 4px;
-  }
-  h2 {
-    font-size: 20px;
-    letter-spacing: -1px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  p {
-    color: #767676;
-    font-size: 15px;
-    margin-top: 0;
-    margin-bottom: 8px;
-  }
-  img {
-    display: block;
-  }
+.stream {
+  padding-top: 32px;
 }
+  .stream__header {
+    background-color: #EEEEED;
+
+    p {
+      color: #CB1417;
+      margin: 0 16px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  // Show New updates
+  .stream__snu {
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+
+    span {
+      font-size: 15px;
+      font-weight: bold;
+      opacity: 0;
+    }
+  }
+    .stream__snu--visible {
+
+      span {
+        opacity: 1;
+      }
+    }
+  .stream__unit {
+    border-bottom: 1px solid #EDEDED;
+    margin: 0 16px 16px;
+    padding-bottom: 24px;
+    position: relative;
+
+    &[data-unit="01"] {}
+    &[data-unit="02"] {}
+    &[data-unit="03"] {}
+
+    .unit__share {
+      position: absolute;
+        top: 0; right: 0;
+    }
+      .sprite--share {
+        background-position: 9px -3005px;
+      }
+    time {
+      color: #616160;
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    h2 {
+      font-size: 20px;
+      letter-spacing: -1px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    p {
+      color: #767676;
+      font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    img {
+      display: block;
+    }
+  }
   .stream__unit--fresh {
     background-color: #FFFFF0;
   }
 
-// Show More (Updates)
-.sm-wrap {
-  max-height: 1568px;
-  overflow: hidden;
-}
-  .sm-wrap--show-more {
-    max-height: 100%;
+  // Show More (Updates)
+  .sm-wrap {
+    max-height: 1568px;
+    overflow: hidden;
   }
-.smu {
-  background-color: #499243;
-  border-right: 1px solid #377238;
-  border-bottom: 2px solid #295531;
-  color: #FFF;
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 16px;
-  margin-left: 16px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-}
+    .sm-wrap--show-more {
+      max-height: 100%;
+    }
+  .smu {
+    background-color: #499243;
+    border-right: 1px solid #377238;
+    border-bottom: 2px solid #295531;
+    color: #FFF;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 16px;
+    margin-left: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
 
 // Misc
 //
