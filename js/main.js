@@ -14,12 +14,14 @@
         masthead: '#js-masthead',
         footer: '#js-footer'
       };
-      Local.numPartials         = Object.keys(Local.partials).length - 1;
-      Local.numIncludedPartials = 0;
+      Local.numPartials          = Object.keys(Local.partials).length - 1;
+      Local.numIncludedPartials  = 0;
+      Local.awaitingNotification = false;
 
       // Start
       Local.bindEvts();
       Local.includePartials();
+      setTimeout(Local.fireNewUpdatesNotification, 2000);
     },
 
     bindEvts: function() {
@@ -51,19 +53,8 @@
         $('#js-sm-wrap', Local.$page).addClass('sm-wrap--show-more');
       });
 
-      // Play/Pause
-      $('#js-ldn-07-play', Local.$page).on('tap', function(e) {
-        e.preventDefault();
-
-        var video = $('#js-ldn-07 video', Local.$page)[0];
-        if(video.paused) {
-          video.play();
-          console.log('play()');
-        } else {
-          video.pause();
-          console.log('pause()');
-        }
-      });
+      // Load New updates
+      $('#js-stream-snu', Local.$page).on('tap', Local.loadNewUpdates);
     },
 
     includePartials: function() {
@@ -81,7 +72,33 @@
             Local.numIncludedPartials++;
           });
       });
+    },
+
+    fireNewUpdatesNotification: function() {
+      $('#js-stream-snu', Local.$page).addClass('stream__snu--visible');
+      Local.awaitingNotification = true;
+    },
+
+    loadNewUpdates: function(e) {
+      e.preventDefault();
+
+      if(!Local.awaitingNotification) {
+        return;
+      }
+
+      Local.insertNewUpdates( afterInsertNewUpdates );
+
+      function afterInsertNewUpdates() {
+        $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
+        Local.awaitingNotification = false;
+      }
+    },
+
+    insertNewUpdates: function(callback) {
+      $('#js-new-updates .stream__unit').insertAfter('#js-stream-day-sep');
+      callback();
     }
+
   };
 
 	$(Local.init);
