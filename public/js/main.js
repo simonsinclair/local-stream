@@ -41,7 +41,12 @@
       // Start
       Local.bindEvts();
       Local.includePartials();
-      setTimeout(Local.fireNewUpdatesNotification, 2000);
+
+      // Only trigger alerts on
+      // the London page.
+      if(Local.$page.data('page') === 'london') {
+        setTimeout(Local.fireNewUpdatesNotification, 2000);
+      }
     },
 
     bindEvts: function() {
