@@ -50,7 +50,7 @@
       // Show More button
       $('#js-smu', Local.$page).on('tap', function(e) {
         e.preventDefault();
-        $('#js-sm-wrap', Local.$page).addClass('sm-wrap--show-more');
+        $('#js-sm-wrap', Local.$page).addClass('sm-wrap--show-all');
       });
 
       // Load New updates
@@ -89,6 +89,7 @@
       Local.insertNewUpdates( afterInsertNewUpdates );
 
       function afterInsertNewUpdates() {
+        $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
         $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
         Local.awaitingNotification = false;
       }
