@@ -4,6 +4,22 @@
 (function(w, $, undefined) {
   "use strict";
 
+  $.fn.isOnScreen = function(){
+
+    var viewport    = {};
+    viewport.top    = $(window).scrollTop();
+    viewport.bottom = viewport.top + $(window).height();
+
+    var bounds    = {};
+    bounds.top    = this.offset().top;
+    bounds.bottom = bounds.top + this.outerHeight();
+
+    return ((bounds.top <= viewport.bottom) && (bounds.bottom >= viewport.top));
+  };
+
+  // LOCAL STREAM
+  // Prototype functionality
+
 	var Local = {
 
     init: function() {
@@ -17,6 +33,10 @@
       Local.numPartials          = Object.keys(Local.partials).length - 1;
       Local.numIncludedPartials  = 0;
       Local.awaitingNotification = false;
+
+      $.ajaxSetup({
+        // ...
+      });
 
       // Start
       Local.bindEvts();
@@ -77,6 +97,10 @@
     fireNewUpdatesNotification: function() {
       $('#js-stream-snu', Local.$page).addClass('stream__snu--visible');
       Local.awaitingNotification = true;
+
+      if( $('#js-stream-snu', Local.$page).isOnScreen() ) {
+        // Then also show the drop-in CTA
+      }
     },
 
     loadNewUpdates: function(e) {
