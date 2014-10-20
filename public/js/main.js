@@ -103,8 +103,9 @@
       $('#js-stream-snu', Local.$page).addClass('stream__snu--visible');
       Local.awaitingNotification = true;
 
-      if( $('#js-stream-snu', Local.$page).isOnScreen() ) {
+      if( !$('#js-stream-snu', Local.$page).isOnScreen() ) {
         // Then also show the drop-in CTA
+        console.log('Show drop-in');
       }
     },
 
