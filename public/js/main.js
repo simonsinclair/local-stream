@@ -143,12 +143,18 @@
       function afterInsertNewUpdates() {
         $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
         Local.awaitingNotification = false;
+
+        Local.coolHotUpdates();
       }
     },
 
     insertNewUpdates: function(callback) {
       $('#js-new-updates .stream__unit').insertAfter('#js-stream-day-sep');
       callback();
+    },
+
+    coolHotUpdates: function() {
+      // ...
     }
 
   };
