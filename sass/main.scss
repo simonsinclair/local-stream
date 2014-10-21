@@ -101,8 +101,9 @@ button {
     }
   .stream__unit {
     border-bottom: 1px solid #EDEDED;
-    margin: 0 16px 16px;
-    padding-bottom: 24px;
+    // margin: 0 16px 16px;
+    padding: 24px 16px;
+    // padding-bottom: 24px;
     position: relative;
 
     &[data-unit="01"],
@@ -111,7 +112,7 @@ button {
 
     .unit__share {
       position: absolute;
-        top: 0; right: 0;
+        top: 24px; right: 16px;
     }
       .sprite--share {
         background-position: 9px -3005px;
@@ -139,7 +140,9 @@ button {
     }
   }
   .stream__unit--fresh {
-    background-color: #FFC;
+    // background-color: #FFC; // GMail
+    // background-color: #FFDF43; // Sport
+    background-color: rgba(255, 223, 67, 0.15);
   }
 
   .stream__day-sep {
@@ -147,7 +150,7 @@ button {
     color: #AAA;
     height: 8px;
     font-size: 14px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     position: relative;
     text-align: center;
 
@@ -222,6 +225,11 @@ button {
 
 // Short Form article
 .sf-01 {}
+
+// London article
+.ld-04 {
+  margin-top: 24px;
+}
 
 // London video
 .ldn-07 {
