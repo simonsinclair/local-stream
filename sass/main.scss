@@ -101,7 +101,6 @@ button {
     }
   .stream__unit {
     background-color: #FFF;
-    border-bottom: 1px solid #EDEDED;
     padding: 24px 16px;
     position: relative;
     transition: background-color 1s linear;
@@ -249,6 +248,9 @@ button {
 // Objects
 //
 
+.hr {
+  border-bottom: 1px solid #EDEDED;
+}
 .nav {
   @extend .clearfix;
   list-style: none;
