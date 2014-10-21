@@ -85,6 +85,7 @@
 
       // Load New updates
       $('#js-stream-snu', Local.$page).on('tap', Local.loadNewUpdates);
+      $('#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
     },
 
     includePartials: function() {
@@ -108,7 +109,7 @@
       $('#js-stream-snu', Local.$page).addClass('stream__snu--visible');
       Local.awaitingNotification = true;
 
-      if( !$('#js-stream-snu', Local.$page).isOnScreen() ) {
+      if( ! $('#js-stream-snu', Local.$page).isOnScreen() ) {
 
         // Make pop-in visible for Local.config.popInHangTimeMs
         $('#js-pop-in').addClass('pop-in--visible');
@@ -121,21 +122,25 @@
     loadNewUpdates: function(e) {
       e.preventDefault();
 
-      if(!Local.awaitingNotification) {
+      // Disable clicking DOM elements when a notification isn't waiting
+      if( ! Local.awaitingNotification ) {
         return;
       }
+
+      $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
+      $('#js-pop-in', Local.$page).removeClass('pop-in--visible');
 
       Local.insertNewUpdates( afterInsertNewUpdates );
 
       function afterInsertNewUpdates() {
         $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
-        $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
         Local.awaitingNotification = false;
       }
     },
 
     insertNewUpdates: function(callback) {
       $('#js-new-updates .stream__unit').insertAfter('#js-stream-day-sep');
+      $(document).scrollTop(874);
       callback();
     }
 
