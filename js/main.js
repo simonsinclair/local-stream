@@ -39,10 +39,6 @@
       Local.numIncludedPartials  = 0;
       Local.awaitingNotification = false;
 
-      $.ajaxSetup({
-        // ...
-      });
-
       // Start
       Local.bindEvts();
       Local.includePartials();
@@ -84,8 +80,8 @@
       });
 
       // Load New updates
-      $('#js-stream-snu', Local.$page).on('tap', Local.loadNewUpdates);
-      $('#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
+      $('#js-stream-snu,#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
+      // $('#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
     },
 
     includePartials: function() {
@@ -131,7 +127,9 @@
       $('#js-pop-in', Local.$page).removeClass('pop-in--visible');
 
       if(e.target.id === 'js-pop-in') {
-        $(document).scrollTop(874);
+        $('html,body').animate({
+          scrollTop: $('#js-stream-header', Local.$page).offset().top
+        }, 750);
       }
 
       Local.insertNewUpdates( afterInsertNewUpdates );
