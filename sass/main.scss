@@ -100,11 +100,11 @@ button {
       }
     }
   .stream__unit {
+    background-color: #FFF;
     border-bottom: 1px solid #EDEDED;
-    // margin: 0 16px 16px;
     padding: 24px 16px;
-    // padding-bottom: 24px;
     position: relative;
+    transition: background-color 1s linear;
 
     &[data-unit="01"],
     &[data-unit="02"],
@@ -140,8 +140,7 @@ button {
     }
   }
   .stream__unit--fresh {
-    // background-color: #FFC; // GMail
-    // background-color: #FFDF43; // Sport
+    // #FFC, GMail; #FFDF43, Sport
     background-color: rgba(255, 223, 67, 0.15);
   }
 
@@ -210,7 +209,7 @@ button {
 }
   .pop-in--visible {
     transform: translateX(50%) translateY(0);
-    transition: transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
 .new-updates {

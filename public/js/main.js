@@ -39,10 +39,6 @@
       Local.numIncludedPartials  = 0;
       Local.awaitingNotification = false;
 
-      $.ajaxSetup({
-        // ...
-      });
-
       // Start
       Local.bindEvts();
       Local.includePartials();
