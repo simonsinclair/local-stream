@@ -126,13 +126,19 @@
       $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
       $('#js-pop-in', Local.$page).removeClass('pop-in--visible');
 
+      // Scroll before inserting if inserting from pop-in CTA,
+      // otherwise straight call insertNewUpdates().
       if(e.target.id === 'js-pop-in') {
+
         $('html,body').animate({
           scrollTop: $('#js-stream-header', Local.$page).offset().top
-        }, 750);
-      }
+        }, 500, 'swing', function() {
+          Local.insertNewUpdates( afterInsertNewUpdates );
+        });
 
-      Local.insertNewUpdates( afterInsertNewUpdates );
+      } else {
+        Local.insertNewUpdates( afterInsertNewUpdates );
+      }
 
       function afterInsertNewUpdates() {
         $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
