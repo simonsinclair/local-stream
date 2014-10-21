@@ -22,6 +22,11 @@
 
 	var Local = {
 
+    config: {
+      newArticlesInMs: 7000,
+      popInHangTimeMs: 3000
+    },
+
     init: function() {
       Local.$page = $('#js-page');
 
@@ -45,7 +50,7 @@
       // Only trigger alerts on
       // the London page.
       if(Local.$page.data('page') === 'london') {
-        setTimeout(Local.fireNewUpdatesNotification, 2000);
+        setTimeout(Local.fireNewUpdatesNotification, Local.config.newArticlesInMs);
       }
     },
 
@@ -104,8 +109,12 @@
       Local.awaitingNotification = true;
 
       if( !$('#js-stream-snu', Local.$page).isOnScreen() ) {
-        // Then also show the drop-in CTA
-        console.log('Show drop-in');
+
+        // Make pop-in visible for Local.config.popInHangTimeMs
+        $('#js-pop-in').addClass('pop-in--visible');
+        setTimeout(function() {
+          $('#js-pop-in').removeClass('pop-in--visible');
+        }, Local.config.popInHangTimeMs);
       }
     },
 
