@@ -23,8 +23,8 @@
 	var Local = {
 
     config: {
-      newArticlesInMs: 7000,
-      popInHangTimeMs: 3000
+      newArticlesInMs: 10000,
+      popInHangTimeMs: 4000
     },
 
     init: function() {
@@ -130,6 +130,10 @@
       $('#js-stream-snu', Local.$page).removeClass('stream__snu--visible');
       $('#js-pop-in', Local.$page).removeClass('pop-in--visible');
 
+      if(e.target.id === 'js-pop-in') {
+        $(document).scrollTop(874);
+      }
+
       Local.insertNewUpdates( afterInsertNewUpdates );
 
       function afterInsertNewUpdates() {
@@ -140,7 +144,6 @@
 
     insertNewUpdates: function(callback) {
       $('#js-new-updates .stream__unit').insertAfter('#js-stream-day-sep');
-      $(document).scrollTop(874);
       callback();
     }
 
