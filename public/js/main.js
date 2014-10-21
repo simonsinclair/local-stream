@@ -132,7 +132,7 @@
 
         $('html,body').animate({
           scrollTop: $('#js-stream-header', Local.$page).offset().top
-        }, 500, 'swing', function() {
+        }, 250, 'swing', function() {
           Local.insertNewUpdates( afterInsertNewUpdates );
         });
 
