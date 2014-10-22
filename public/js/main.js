@@ -161,7 +161,17 @@
     },
 
     coolHotUpdates: function() {
-      console.log('Time to cool off.');
+      $('#js-new-updates .stream__unit--fresh', Local.$page)
+        .each(function(i, elm) {
+
+          var timeout = (i + 1) * 3000;
+
+          setTimeout(function() {
+            $(elm).removeClass('stream__unit--fresh');
+            console.log('Removing .stream__unit--fresh from element ' + i);
+          }, timeout);
+
+        });
     }
 
   };
