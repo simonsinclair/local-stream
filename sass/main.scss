@@ -212,8 +212,12 @@ button {
   }
 
 .new-updates {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
 }
+  .new-updates--visible {
+    max-height: 100%;
+  }
 
 // Misc
 //
