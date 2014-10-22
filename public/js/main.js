@@ -23,7 +23,7 @@
 	var Local = {
 
     config: {
-      newArticlesInMs: 2000,
+      newArticlesInMs: 7000,
       popInHangTimeMs: 5000
     },
 
