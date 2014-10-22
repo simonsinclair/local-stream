@@ -86,7 +86,6 @@
 
         $(window).on('scroll', function() {
 
-          // if( ( $(window).scrollTop() + $(window).height() ) >= Local.streamHeaderOffsetTop ) {
           if( $(window).scrollTop() >= Local.streamHeaderOffsetTop ) {
             setTimeout(Local.fireNewUpdatesNotification, Local.config.newArticlesInMs);
             $(window).off('scroll');
