@@ -23,8 +23,8 @@
 	var Local = {
 
     config: {
-      newArticlesInMs: 10000,
-      popInHangTimeMs: 4000
+      newArticlesInMs: 2000,
+      popInHangTimeMs: 5000
     },
 
     init: function() {
@@ -35,20 +35,15 @@
         masthead: '#js-masthead',
         footer: '#js-footer'
       };
-      Local.numPartials          = Object.keys(Local.partials).length - 1;
-      Local.numIncludedPartials  = 0;
-      Local.awaitingNotification = false;
-      Local.updatesInserted      = false;
+      Local.numPartials           = Object.keys(Local.partials).length - 1;
+      Local.numIncludedPartials   = 0;
+      Local.awaitingNotification  = false;
+      Local.updatesInserted       = false;
+      Local.streamHeaderOffsetTop = $('#js-stream-header', Local.$page).offset().top;
 
       // Start
       Local.bindEvts();
       Local.includePartials();
-
-      // Only trigger alerts on
-      // the London page.
-      if(Local.$page.data('page') === 'london') {
-        setTimeout(Local.fireNewUpdatesNotification, Local.config.newArticlesInMs);
-      }
     },
 
     bindEvts: function() {
@@ -82,7 +77,22 @@
 
       // Load New updates
       $('#js-stream-snu,#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
-      // $('#js-pop-in', Local.$page).on('tap', Local.loadNewUpdates);
+
+      // Scroll Position
+      // - London page
+      if(Local.$page.data('page') === 'london') {
+
+        $(window).on('scroll', function() {
+
+          if( ( $(window).scrollTop() + $(window).height() ) >= Local.streamHeaderOffsetTop ) {
+            setTimeout(Local.fireNewUpdatesNotification, Local.config.newArticlesInMs);
+            $(window).off('scroll');
+          }
+
+        });
+
+      }
+
     },
 
     includePartials: function() {
@@ -133,7 +143,7 @@
 
         $('html,body').animate({
 
-          scrollTop: $('#js-stream-header', Local.$page).offset().top
+          scrollTop: Local.streamHeaderOffsetTop
 
         }, 250, 'swing', function() {
 
@@ -161,10 +171,11 @@
     },
 
     coolHotUpdates: function() {
-      $('#js-new-updates .stream__unit--fresh', Local.$page)
-        .each(function(i, elm) {
+      var $freshUnits = $('#js-new-updates .stream__unit--fresh', Local.$page);
 
-          var timeout = (i + 1) * 3000;
+      $freshUnits.each(function(i, elm) {
+
+          var timeout = ( $freshUnits.length - i ) * 1500;
 
           setTimeout(function() {
             $(elm).removeClass('stream__unit--fresh');
