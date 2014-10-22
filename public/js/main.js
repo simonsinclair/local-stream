@@ -1,7 +1,7 @@
 // main.js
 //
 
-(function(w, $, undefined) {
+(function(window, $, undefined) {
   "use strict";
 
   $.fn.isOnScreen = function(){
@@ -168,7 +168,6 @@
 
           setTimeout(function() {
             $(elm).removeClass('stream__unit--fresh');
-            console.log('Removing .stream__unit--fresh from element ' + i);
           }, timeout);
 
         });
