@@ -1,7 +1,7 @@
 // main.js
 //
 
-(function(w, $, undefined) {
+(function(window, $, undefined) {
   "use strict";
 
   $.fn.isOnScreen = function(){
@@ -38,6 +38,7 @@
       Local.numPartials          = Object.keys(Local.partials).length - 1;
       Local.numIncludedPartials  = 0;
       Local.awaitingNotification = false;
+      Local.updatesInserted      = false;
 
       // Start
       Local.bindEvts();
@@ -131,30 +132,45 @@
       if(e.target.id === 'js-pop-in') {
 
         $('html,body').animate({
+
           scrollTop: $('#js-stream-header', Local.$page).offset().top
+
         }, 250, 'swing', function() {
-          Local.insertNewUpdates( afterInsertNewUpdates );
+
+          Local.insertNewUpdates();
+          Local.updatesInserted = true;
+
         });
 
       } else {
-        Local.insertNewUpdates( afterInsertNewUpdates );
-      }
-
-      function afterInsertNewUpdates() {
-        $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
-        Local.awaitingNotification = false;
-
-        Local.coolHotUpdates();
+        Local.insertNewUpdates();
       }
     },
 
-    insertNewUpdates: function(callback) {
-      $('#js-new-updates .stream__unit').insertAfter('#js-stream-day-sep');
-      callback();
+    insertNewUpdates: function() {
+      if(Local.updatesInserted) {
+        return;
+      }
+
+      $('#js-new-updates', Local.$page).addClass('new-updates--visible');
+      $('#js-sm-wrap', Local.$page).addClass('sm-wrap--after-snu');
+
+      Local.awaitingNotification = false;
+
+      Local.coolHotUpdates();
     },
 
     coolHotUpdates: function() {
-      // ...
+      $('#js-new-updates .stream__unit--fresh', Local.$page)
+        .each(function(i, elm) {
+
+          var timeout = (i + 1) * 3000;
+
+          setTimeout(function() {
+            $(elm).removeClass('stream__unit--fresh');
+          }, timeout);
+
+        });
     }
 
   };
