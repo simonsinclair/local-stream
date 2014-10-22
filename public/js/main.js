@@ -39,7 +39,7 @@
       Local.numIncludedPartials   = 0;
       Local.awaitingNotification  = false;
       Local.updatesInserted       = false;
-      Local.streamHeaderOffsetTop = $('#js-stream-header', Local.$page).offset().top;
+      Local.streamHeaderOffsetTop = 0;
 
       // Start
       Local.bindEvts();
@@ -81,6 +81,8 @@
       // Scroll Position
       // - London page
       if(Local.$page.data('page') === 'london') {
+
+        Local.streamHeaderOffsetTop = $('#js-stream-header', Local.$page).offset().top;
 
         $(window).on('scroll', function() {
 
